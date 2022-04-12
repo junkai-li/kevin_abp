@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using kevin_abp.kevinModel;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Data;
@@ -50,6 +51,8 @@ public class kevin_abpDbContext :
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
 
+    public DbSet<kevinItem> kevinItems { get; set; }
+
     #endregion
 
     public kevin_abpDbContext(DbContextOptions<kevin_abpDbContext> options)
@@ -81,5 +84,10 @@ public class kevin_abpDbContext :
         //    b.ConfigureByConvention(); //auto configure for the base class props
         //    //...
         //});
+
+        builder.Entity<kevinItem>(b =>
+        {
+            b.ToTable(kevin_abpConsts.DbTablePrefix + "TestKevinItems");
+        });
     }
 }

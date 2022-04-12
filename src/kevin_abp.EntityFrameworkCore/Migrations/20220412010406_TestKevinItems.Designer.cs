@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 using kevin_abp.EntityFrameworkCore;
@@ -11,9 +12,10 @@ using kevin_abp.EntityFrameworkCore;
 namespace kevin_abp.Migrations
 {
     [DbContext(typeof(kevin_abpDbContext))]
-    partial class kevin_abpDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220412010406_TestKevinItems")]
+    partial class TestKevinItems
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
